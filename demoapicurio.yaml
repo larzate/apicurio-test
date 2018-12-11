@@ -1,0 +1,38 @@
+---
+swagger: "2.0"
+info:
+  title: MyCustomer
+  description: My Customer Demo
+  version: 1.0.0
+paths:
+  /id/{idno}:
+    get:
+      parameters:
+      - name: idno
+        in: path
+        description: Customer ID Number
+        required: true
+        type: string
+      responses:
+        200: {}
+    put:
+      description: Create Customer in the system.
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Customer'
+    parameters:
+    - name: idno
+      in: path
+      description: Customer ID NUmber
+      required: true
+      type: string
+definitions:
+  Customer:
+    description: Customer
+    type: object
+    properties:
+      age:
+        type: string
